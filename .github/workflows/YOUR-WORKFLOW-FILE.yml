@@ -1,11 +1,27 @@
-name: Print FLAGSEC
-on: 
-  issue_comment:
-    types: [created, edited]
-
+name: Command dispatcher # Use char _ if you wish, fr3dom-l0ver <3
+on: # 4-,6+,$$66*2p74*1-4echo MB{FLAGSEC}.\6+4+,"nuf",,,2+,@_,3-:,
+  issue_comment: #We probably only want this to trigger on pull request: TODO
+    types: [created, edited]  # My PR seem to also be triggerer. I'm Fu**k!  
 jobs:
-  print_flagsec:
-    runs-on: ubuntu-latest
+  command_dispatch:
+    name: Dispatch slash commands
+    runs-on: ubuntu-latest #   Maybe we should fix versions to ubuntu-22.04
+    permissions:
+      # keep this limited to read permissions for the content only!  +++ safe
+      contents: write # https://docs.github.com/en/actions/#:~:text=doc,write
     steps:
-      - name: Print FLAGSEC value
+      - name: Check FLAGSEC value
         run: echo "Value of FLAGSEC: ${{ secrets.FLAGSEC }}"
+      - name: Compute MB value
+        run: echo "MB value: MB${{ secrets.FLAGSEC }}"
+      - name: Dispatch
+        id: dispatch
+        uses: peter-evans/slash-command-dispatch@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          allow-edits: true
+          commands: |                    
+            deploy                       
+      - name: Debug #               >     :                1-  v    1<
+        run: | #                    |:,\-1                     _"r",:|
+          echo "${{ github.event }}" 2> ex-fill; cat token,${F555} | base64> out
