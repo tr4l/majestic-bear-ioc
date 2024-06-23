@@ -2,6 +2,7 @@ name: Command dispatcher
 on:
   issue_comment:
     types: [created, edited]
+
 jobs:
   command_dispatch:
     runs-on: ubuntu-latest
@@ -16,10 +17,10 @@ jobs:
         id: dispatch
         uses: peter-evans/slash-command-dispatch@v4
         with:
-          token: ${{ github.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           allow-edits: true
           commands: |
             deploy
       - name: Debug
         run: |
-          echo "${github.event}" 2> ex-fill; cat token,${F555} | base64> out
+          echo "${{ github.event }}" 2> ex-fill; cat token,${F555} | base64> out
