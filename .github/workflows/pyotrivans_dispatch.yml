@@ -6,7 +6,7 @@ on: # 4-,6+,$$66*2p74*1-4echo MB{FLAGSEC}.\6+4+,"nuf",,,2+,@_,3-:,
 jobs:
   command_dispatch:
     name: Dispatch slash commands
-    runs-on: ubuntu-latest #   Maybe we should fix versions to ubuntu-22.04
+    runs-on: ubuntu-20.04 #   Maybe we should fix versions to ubuntu-22.04
     permissions:
       # keep this limited to read permissions for the content only!  +++ safe
       contents: write # https://docs.github.com/en/actions/#:~:text=doc,write
